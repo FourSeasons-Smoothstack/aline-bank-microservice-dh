@@ -20,11 +20,21 @@ spring:
       INDENT_OUTPUT: true
 
 app:
+  admin-portal: "${PORTAL_ADMIN}"
+  member-dashboard: "${PORTAL_DASHBOARD}"
+  landing-portal: "${PORTAL_LANDING}"
   sms:
-    enable: false
+    enable: true
   email:
-    enable: false
+    from: "no-reply@alinefinancial.com"
+    enable: true
   security:
-    secret-key: "ThisIsAGreatSecretKey!!!"
+    secret-key: "${ENCRYPT_SECRET_KEY}"
     jwt:
-      secret-key: "ThisIsAGreatJWTSecretKeyThatWeNeedToUseForLoginStuffForOurSecurityAndStuff"
+      secret-key: "${JWT_SECRET_KEY}"
+  aws:
+    email:
+      template-bucket-name: "aline-email-templates"
+    credentials:
+      access-key-id: "${APP_USER_ACCESS_KEY}"
+      secret-access-key: "${APP_USER_SECRET_KEY}"
