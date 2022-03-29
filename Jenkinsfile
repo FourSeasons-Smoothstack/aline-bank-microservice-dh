@@ -5,7 +5,12 @@ pipeline{
         jdk "jdk"
     }
     stages{
-        
+        stage('Get repository'){
+            steps{
+                
+            git([url: 'https://github.com/FourSeasons-Smoothstack/aline-bank-microservice-dh.git', branch: 'main'])
+            }
+        }
         stage('Build Jar') {
             steps{ 
                 echo 'Building Jar file'
