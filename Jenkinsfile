@@ -1,9 +1,5 @@
 pipeline{
     agent any
-    tools {
-        maven "maven"
-        jdk "jdk"
-    }
     stages{
         stage('Get repository'){
             steps{
@@ -15,7 +11,7 @@ pipeline{
             steps{ 
                 echo 'Building Jar file'
                 
-                powershell 'mvn clean package -DskipTests'
+                sh 'mvn clean package -DskipTests'
                 
                 
             }
