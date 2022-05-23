@@ -18,5 +18,5 @@ artifacts:
   files:
     - target/bank-ms.jar
 
-  version: 0.2
+
 
