@@ -11,7 +11,7 @@ phases:
       java: corretto11
   pre_build:
     commands:
-      - yum update
+      - yum update -y
       - yum install -y jq
       - wget http://www-eu.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
       - tar xzf apache-maven-3.5.4-bin.tar.gz
