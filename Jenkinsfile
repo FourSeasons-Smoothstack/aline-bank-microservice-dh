@@ -30,7 +30,7 @@ pipeline{
             steps{ 
                 echo 'Building Jar file'
                 withMaven{
-                    sh 'mvn --version'
+                    maven: 'Default Maven'
                     sh 'mvn clean package -DskipTests'
                 }
                
