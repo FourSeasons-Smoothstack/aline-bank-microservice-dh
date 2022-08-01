@@ -66,9 +66,11 @@ pipeline{
 
                 script{
                     withCredentials([usernamePassword(credentialsId: 'aws-cred', passwordVariable: 'SECRET', usernameVariable: 'ACCESS')]){
-                    sh ("export AWS_ACCESS_KEY_ID=" + ACCESS)
-                    sh ("export AWS_SECRET_ACCESS_KEY=" +SECRET)
-                    sh "aws eks update-kubeconfig --name aline-banking-dh --region us-east-1"
+                        sh("aws configure")
+                        sh (ACCESS)
+                        sh (SECRET)
+                        sh "us-east-1"
+                        sh "JSON"
                     }
                 }
                 
