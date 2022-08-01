@@ -29,9 +29,9 @@ pipeline{
         stage('Build Image') {
             steps{ 
                 echo 'Building Jar file'
-                withMaven{
-                    sh 'mvn clean package -DskipTests'
-                }
+                
+                sh 'mvn clean package -DskipTests'
+               
                 script {
                     
                     dockerImage = docker.build(ACCOUNT+REGISTRY+':latest')
