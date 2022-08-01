@@ -62,8 +62,6 @@ pipeline{
         stage('Upload image to K8 cluster'){
             steps{
                 echo 'Updating image file on cluster with newly built image.'
-                withCredentials('aws-cred'){}
-                    
                 sh "export AWS_DEFAULT_REGION=us-east-1"
 
                 script{
