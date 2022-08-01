@@ -29,8 +29,8 @@ pipeline{
         stage('Build Image') {
             steps{ 
                 echo 'Building Jar file'
-                withMaven{
-                    maven: 'Default Maven'
+                withMaven(maven: 'Default Maven'){
+                    
                     sh 'mvn clean package -DskipTests'
                 }
                
