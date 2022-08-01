@@ -65,13 +65,12 @@ pipeline{
                 sh "export AWS_DEFAULT_REGION=us-east-1"
 
                 script{
-                    withCredentials([usernamePassword(credentialsId: 'aws-cred', passwordVariable: 'SECRET', usernameVariable: 'ACCESS')]){
-                        sh("aws configure")
-                        sh ('printf "' + ACCESS +"\n" + SECRET +'\nus-east-1\nJSON" | aws configure')
+                    withAWS(credentials: 'aws-cred-dh', region: 'us-west-1'){
+                        sh "kubectl set image deployment/aline-bank aline-bank=032797834308.dkr.ecr.us-east-1.amazonaws.com/aline-banking-bank-dh:latest"
                     }
                 }
                 
-                sh "kubectl set image deployment/aline-bank aline-bank=032797834308.dkr.ecr.us-east-1.amazonaws.com/aline-banking-bank-dh:latest"
+                
 
             }
         }
