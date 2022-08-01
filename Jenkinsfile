@@ -67,10 +67,7 @@ pipeline{
                 script{
                     withCredentials([usernamePassword(credentialsId: 'aws-cred', passwordVariable: 'SECRET', usernameVariable: 'ACCESS')]){
                         sh("aws configure")
-                        sh (ACCESS)
-                        sh (SECRET)
-                        sh "us-east-1"
-                        sh "JSON"
+                        sh ('printf "' + ACCESS +"\n" + SECRET +"\nus-east-1\nJSON | aws configure")
                     }
                 }
                 
