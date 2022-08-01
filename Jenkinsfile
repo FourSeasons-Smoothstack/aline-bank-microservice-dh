@@ -58,13 +58,14 @@ pipeline{
                 
             }
         }
-        stage('Upload image to K8 cluster')
+        stage('Upload image to K8 cluster'){
             steps{
                 echo 'Updating image file on cluster with newly built image.'
                 sh "aws eks update-kubeconfig --name aline-banking-dh --region us-east-1"
                 sh "kubectl set image deployment/aline-bank aline-bank=032797834308.dkr.ecr.us-east-1.amazonaws.com/aline-banking-bank-dh:latest"
 
             }
+        }
 
     }
 }
