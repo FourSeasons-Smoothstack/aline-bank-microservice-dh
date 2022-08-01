@@ -1,6 +1,11 @@
 pipeline{
     agent any
 
+    tools {
+        maven "Default Maven"
+        dockerTool "Default Docker"
+    }
+
     environment{
         REGISTRY = ".dkr.ecr.us-east-1.amazonaws.com/aline-banking-bank-dh"
     }
@@ -33,7 +38,7 @@ pipeline{
                     
                     sh 'mvn clean package -DskipTests'
                 }
-               
+                
                 script {
                     
                     dockerImage = docker.build(ACCOUNT+REGISTRY+':latest')
