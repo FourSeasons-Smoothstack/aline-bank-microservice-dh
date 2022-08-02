@@ -62,14 +62,12 @@ pipeline{
         stage('Upload image to K8 cluster'){
             steps{
                 echo 'Updating image file on cluster with newly built image.'
-                sh "export AWS_DEFAULT_REGION=us-east-1"
 
-                script{
-                    withAWS(credentials: 'aws-cred-dh', region: 'us-west-1'){
-                        sh "aws eks update-kubeconfig --region us-west-1 --name aline-banking-dh"
-                        sh "kubectl set image deployment/aline-bank aline-bank=032797834308.dkr.ecr.us-east-1.amazonaws.com/aline-banking-bank-dh:latest"
-                    }
-                }
+                    
+                sh "aws eks update-kubeconfig --region us-west-1 --name aline-banking-dh"
+                sh "kubectl set image deployment/aline-bank aline-bank=032797834308.dkr.ecr.us-east-1.amazonaws.com/aline-banking-bank-dh:latest"
+                    
+                
                 
                 
 
