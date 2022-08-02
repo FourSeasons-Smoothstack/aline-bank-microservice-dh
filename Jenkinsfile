@@ -65,7 +65,7 @@ pipeline{
 
                     
                 sh "aws eks update-kubeconfig --region us-east-1 --name aline-banking-dh"
-                sh ("kubectl set image deployment/aline-bank aline-bank=" + ACCOUNT + REGISTRY +"/aline-banking-bank-dh:latest")
+                sh ("kubectl set image deployment/aline-bank aline-bank=" + ACCOUNT + REGISTRY)
                 sh "kubectl rollout restart deployment/aline-bank"
                     
             }
