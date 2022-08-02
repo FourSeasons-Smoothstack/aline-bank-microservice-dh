@@ -6,10 +6,6 @@ pipeline{
         dockerTool "Default Docker"
     }
 
-    environment{
-        REGISTRY = ".dkr.ecr.us-east-1.amazonaws.com/aline-banking-bank-dh"
-    }
-
     stages{
 
 
