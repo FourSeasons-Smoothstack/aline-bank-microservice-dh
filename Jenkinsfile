@@ -64,7 +64,7 @@ pipeline{
                 echo 'Updating image file on cluster with newly built image.'
 
                     
-                sh "aws eks update-kubeconfig --region us-east-1 --name aline-banking-dh"
+                sh ("aws eks update-kubeconfig --region us-east-1 --name " + CLUSTER_NAME)
                 sh ("kubectl set image deployment/aline-bank aline-bank=" + ACCOUNT + REGISTRY)
                 sh "kubectl rollout restart deployment/aline-bank"
                     
